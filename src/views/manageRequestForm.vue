@@ -231,6 +231,7 @@ onMounted(async () => {
     try {
       const response = await user_service.getBorrowLogByID(props.id);
       response.NgayMuon = new Date(response.NgayMuon).toISOString().slice(0, 10);
+      response.NgayTra = new Date(response.NgayTra).toISOString().slice(0, 10);
       formData.value = { ...response };
       const currentDate = new Date();
       const ngayMuon = new Date(formData.value.NgayMuon);

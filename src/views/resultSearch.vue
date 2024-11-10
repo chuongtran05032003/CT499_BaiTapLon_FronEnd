@@ -6,12 +6,14 @@
         <span class="p-2"> > </span>
         <span class="py-2 px-5 rounded-xl font-semibold hover:bg-[#FEF6DF]">{{ categoryName }}</span>
     </div>
-    <div v-else class="w-full h-fit pb-5 flex">
-        <span class="p-2" >Kết quả tìm kiếm của: </span>
-        <span class="p-2">{{ route.query.searchQuery }}</span>
+    <div v-else class="w-full h-fit pb-5 flex flex-col">
+        <div class="flex">
+            <span class="p-2" >Kết quả tìm kiếm của: </span>
+            <span class="p-2">{{ route.query.searchQuery }}</span>
+        </div>
         <div v-if="notfound === true">
-        <span class="p-2 text-lg" >Không có kết quả trùng khớp với yêu cầu!</span>
-    </div>
+            <span class="p-2 text-lg" >Không có kết quả trùng khớp với yêu cầu!</span>
+        </div>
     </div>
     <div class="flex-1 overflow-y-auto pr-4" style="scrollbar-gutter: stable;">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">

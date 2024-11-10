@@ -142,6 +142,8 @@ const getTitle = (action) => {
       return 'Thêm Tài Khoản';
     case 'update':
       return 'Cập Tài Khoản';
+    case 'view':
+      return 'Chi tiết Tài Khoản';
     default:
       return 'Hành động không xác định';
   }

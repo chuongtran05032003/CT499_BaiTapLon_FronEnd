@@ -92,6 +92,16 @@
               <input required type="password" v-model="form.password" id="pass" placeholder="Nhập mật khẩu"
                 class="mt-1 block w-full px-3 py-2 text-[#aaa] border border-[#aaa] rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" >
             </div>
+            <div>
+                <label for="pass2" class="block font-medium text-gray-700 whitespace-nowrap">Nhập lại mật khẩu</label>
+                <input
+                  type="password"
+                  id="pass2"
+                  v-model="Password"
+                  placeholder="Nhập lại mật khẩu"
+                  class="mt-1 block w-full px-3 py-2  border border-[#aaa] rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 " 
+                />
+              </div>
             <div class="">
               <button type="submit"
                 class="inline-flex w-full mt-5 justify-center py-2 px-4 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 whitespace-nowrap">
@@ -126,7 +136,7 @@ const props = defineProps({
     type: Boolean,
   },
 });
-
+const Password = ref('');
 const login = async () => {
   try {
     await store.dispatch('login', { username: email.value, password: password.value });
@@ -150,8 +160,13 @@ const form = ref({
 
 const register = async () => {
   try {
-    await store.dispatch('register', form.value);
-    router.go(-1);
+    if (Password.value !== form.value.password) {
+      toast.error('Mật khẩu nhập lại không khớp');
+      return;
+    } else {
+      await store.dispatch('register', form.value);
+      router.go(-1);
+    }
   } catch (error) {
     const errorMessage = error.response?.data?.error?.message?.message || 'Có lỗi xảy ra. Vui lòng thử lại.';
     toast.error(errorMessage);

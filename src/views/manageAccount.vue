@@ -3,7 +3,7 @@
  <div
     class="flex-1 rounded-xl bg-white flex flex-col overflow-hidden relative py-5 pl-5">
     <div class="h-fit w-full mb-5 items-center ">
-        <h3 class="font-bold text-lg whitespace-nowrap ">Tùy chỉnh hồ sơ</h3>
+        <h3 class="font-bold text-lg whitespace-nowrap ">Hồ sơ tài khoản</h3>
     </div>
     <div v-if="userData" class="flex-1 overflow-y-auto flex flex-col md:flex-row pr-5" style="scrollbar-gutter: stable;">
       <div class="h-full w-full md:w-1/2 flex justify-center items-center min-w-fit pb-5 md:pb-0">

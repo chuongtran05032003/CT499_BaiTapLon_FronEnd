@@ -175,6 +175,8 @@ const getTitle = (action) => {
       return 'Thêm Sách';
     case 'update':
       return 'Cập Nhật Sách';
+    case 'view':
+      return 'Chi tiết Sách';
     default:
       return 'Hành động không xác định';
   }

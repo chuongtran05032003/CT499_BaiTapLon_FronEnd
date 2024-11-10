@@ -20,7 +20,7 @@
                   type="text"
                   id="ma-nxb"
                   v-model="formData.MaNXB"
-                  :disabled="props.action === 'view'"
+                  :disabled="true"
                   placeholder="Nhập mã nhà xuất bản"
                   class="mt-1 block w-full px-3 py-2  border border-[#aaa] rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                 />
