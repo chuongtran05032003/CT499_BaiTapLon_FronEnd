@@ -77,7 +77,7 @@
                         <option class="text-sm" value="DangKy">Đăng ký</option>
                         <option class="text-sm" value="Muon">Mượn</option>
                         <option class="text-sm" value="Tra">Trả</option>
-                        <option v-if="props.action === 'view'" class="text-sm" value="QuaHan">Quá hạn</option>
+                        <option class="text-sm" value="QuaHan">Quá hạn</option>
                     </select>
                     <span class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
                         <svg class="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -231,7 +231,9 @@ onMounted(async () => {
     try {
       const response = await user_service.getBorrowLogByID(props.id);
       response.NgayMuon = new Date(response.NgayMuon).toISOString().slice(0, 10);
-      response.NgayTra = new Date(response.NgayTra).toISOString().slice(0, 10);
+      if (response.NgayTra) {
+        response.NgayTra = new Date(response.NgayTra).toISOString().slice(0, 10);
+      }
       formData.value = { ...response };
       const currentDate = new Date();
       const ngayMuon = new Date(formData.value.NgayMuon);
@@ -244,6 +246,7 @@ onMounted(async () => {
       const errorMessage = error.response?.data?.message || 'Có lỗi xảy ra. Vui lòng thử lại.';
       toast.error(errorMessage);
     }
+    console.log(formData.value);
   } else {
     const today = new Date();
     const formattedDate = today.toISOString().slice(0, 10);

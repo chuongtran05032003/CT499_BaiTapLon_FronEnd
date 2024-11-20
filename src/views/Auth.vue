@@ -168,7 +168,8 @@ const register = async () => {
       router.go(-1);
     }
   } catch (error) {
-    const errorMessage = error.response?.data?.error?.message?.message || 'Có lỗi xảy ra. Vui lòng thử lại.';
+    console.log(error);
+    const errorMessage = error.response?.data?.message || 'Có lỗi xảy ra. Vui lòng thử lại.';
     toast.error(errorMessage);
   }
 };

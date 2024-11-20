@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <div class=" h-fit w-full flex justify-end py-10">
-                            <div class="flex flex-1 h-full justify-end">
+                            <div v-if="!userData?.ChucVu || userData === null" class="flex flex-1 h-full justify-end">
                                 <button @click="confirmSave" class="rounded-xl hover:bg-[#FEF6DF] bg-[#FFD573] px-5 py-3">Đăng ký
                                     mượn</button>
                             </div>
@@ -169,6 +169,7 @@ const confirmSave = async () => {
 const borrow = async () => {
     try {
         const currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0);
         const data = {
         ID_DocGia: userData.value._id,
         ID_Sach: props.id,

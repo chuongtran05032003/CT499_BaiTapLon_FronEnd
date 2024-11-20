@@ -1,5 +1,5 @@
 <template>
-        <div class="h-10 w-10 m-2 hover:bg-[#FEF6DF] rounded-full flex items-center justify-center"
+        <div class="h-10 w-10 m-2 hover:bg-[#FEF6DF] rounded-full flex items-center justify-center cursor-pointer"
             @click="openNav">
             <i class="fa-solid fa-bars"></i>
         </div>
