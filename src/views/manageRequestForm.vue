@@ -64,7 +64,6 @@
                   <input
                     type="date"
                     id="ngayTra"
-                    required
                     v-model="formData.NgayTra"
                     :disabled="props.action === 'view'"
                     class="mt-1 block w-full px-3 py-2  border border-[#aaa] rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 " 
@@ -190,13 +189,13 @@ const save = async () => {
     if (props.action === 'add') {
       const response = await user_service.borrow(data);
       eventBus.emit('reload');
-      toast.success(response.message);
+      toast.success(response.message || 'Thêm thành công');
       router.go(-1);
     }
     else if (props.action === 'update') {
       const response = await staff_service.updateBorrow(props.id, formData.value); 
       eventBus.emit('reload');
-      toast.success(response.message);
+      toast.success(response.message || 'Cập nhật thành công');
       router.go(-1);
     }
   } catch (error) {
